@@ -1,0 +1,37 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div class="full_w">
+        <div class="h_title">اضافة نشاط جديد </div>
+        <form action="{{ path('association_adherant_ajouter') }}" method="post" {{ form_enctype(form) }}>
+            <div class="element">
+                {{ form_label(form.nom,'مكان العائلي') }}
+                {{ form_errors(form.nom) }}
+                {{ form_widget(form.nom,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.prenom,'اسم الشخصي') }}
+                {{ form_errors(form.prenom) }}
+                {{ form_widget(form.prenom,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.dateAdhesion,'تاريخ الانخراط') }}
+                {{ form_errors(form.dateAdhesion) }}
+                {{ form_widget(form.dateAdhesion,{ 'attr': {'class': 'text'} }) }}
+            </div>
+              <div class="element">
+                {{ form_label(form.profil,'المهمة') }}
+                {{ form_errors(form.profil) }}
+                {{ form_widget(form.profil,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.email,'البريد الالكتروني') }}
+                {{ form_errors(form.email) }}
+                {{ form_widget(form.email,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                <button type="submit" class="add">حفظ الصفحة</button>
+                <a class="button" href="{{ path('association_adherant_liste') }}">الرجوع الى القائمة</a>
+            </div>
+        </form>
+        <div>
+        {% endblock %}

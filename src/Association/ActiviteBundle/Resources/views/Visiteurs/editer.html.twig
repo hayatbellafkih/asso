@@ -1,0 +1,60 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div>
+        <p> 
+{#            <span>النشاط</span><span>{{ libeleActivite }}</span>
+#}        </p>
+    </div>
+    <div class="full_w">
+        <div class="h_title">إضافة صفحة جديدة   </div>
+        <form action="{{ path('association_visiteurs_editer',{ 'id' : id}) }}" method="post">
+            <div class="element">
+                {{ form_label(form.prenom,'') }}
+                {{ form_errors(form.prenom) }}
+                {{ form_widget(form.prenom,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.nom,'') }}
+                {{ form_errors(form.nom) }}
+                {{ form_widget(form.nom,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.email,'') }}
+                {{ form_errors(form.email) }}
+                {{ form_widget(form.email,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.tel,'') }}
+                {{ form_errors(form.tel) }}
+                {{ form_widget(form.tel,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.ocupation,'') }}
+                {{ form_errors(form.ocupation) }}
+                {{ form_widget(form.ocupation,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.sexe) }}
+                {{ form_errors(form.sexe) }}
+                {{ form_widget(form.sexe,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.civilite) }}
+                {{ form_errors(form.civilite) }}
+                {{ form_widget(form.civilite,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.adresse) }}
+                {{ form_errors(form.adresse) }}
+                {{ form_widget(form.adresse,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="entry">
+                <button type="submit" name="action_visiteurs" value="reset">حفظ</button> 
+             {#   <button type="button"  name="action_visiteurs" value="add">حفظ الصفحة</button> 
+                <button class="cancel" name="action_visiteurs" value="cancel">إلغاء</button>
+                <input type="button" class="ajout_visiteur"  value="register" />#}
+            </div>
+        </form>
+        <script type="text/javascript" src="{{ asset('js/activite.js') }}"></script>
+    </div>
+{% endblock %}

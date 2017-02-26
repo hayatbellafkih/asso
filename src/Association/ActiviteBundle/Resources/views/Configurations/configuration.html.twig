@@ -1,0 +1,49 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div class="full_w">
+        <div class="h_title">الاعدادات</div>
+        <div class="sep"></div>
+
+        <div class="element">
+            <div>
+                <label for="typeReunions" class="titres">نوع النشاط</label>
+                <input type="text"  name="typeReunions"  id="txt_ajouter_type">
+                <button  class="button add" id="ajouterTypeReunion">حفظ</button>
+            </div>
+            <select id="libs">
+                
+            </select>
+            <div id='tousTypes'>
+                {% for t in types %}
+                    <button class="button-lib" id="test">{{  t }} </button>
+                {% endfor%}
+            </div>
+            <div class="sep"></div>
+            <div>
+                <label for="typeReunions" class="titres">تصنيفات المستخلصين</label>
+                <input type="text"  name="catFournisseurs"  id="txt_ajouter_categorie_fournisseur">
+                <button  class="button add" id="ajouterCatFournisseur">حفظ</button>
+
+            </div>
+            {# <div id='tousCatFournisseur'>
+                 {% for categorie in catFournisseurs %}
+                     <button class="cancel" id="test">{{  t }} </button>
+                 {% endfor%}
+             </div>#}
+            <div class="sep"></div>
+            <div>
+                <div><label for="" class="titres">Import</label> <div class="element">
+                        <label for="attach">المُرفقات</label>
+                        <input type="file" name="attach" />
+                    </div> </div>
+
+                <div><label for="" class="titres">Export</label> <div class="element">
+                        <label for="attach">المُرفقات</label>
+                        <input type="file" name="attach" />
+                    </div></div>
+
+            </div>
+        </div>
+
+
+    {% endblock %}

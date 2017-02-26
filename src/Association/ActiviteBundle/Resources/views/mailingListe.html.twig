@@ -1,0 +1,61 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div class="full_w">
+        <div class="h_title"></div>
+        <div class="sep"></div>
+        <form action="" method="post">
+            <div class="element">
+                <label for="sujet"> موضوع الرسالة</label>
+                <input  name="sujet" class="text" />
+            </div>
+            <div class="element">
+                <label for="from">المرسل </label>
+                <input name="from" class="text" />
+            </div>
+
+            <div class="element">
+                <label for="content">محتوى الرسالة</label>
+                <textarea name="content" class="textarea" rows="10"></textarea>
+            </div>
+            <div class="element">
+                <label for="attach">المُرفقات</label>
+                <input type="file" name="attach" />
+            </div>
+        </form>
+        <div class="sep"></div>
+        <div>
+            <input type="checkbox" id="cocherTous" >اختيار الكل
+        </div>
+        <label class="labels"> المرسلين اليهم</label>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">الاسم الشخصي</th>
+                    <th scope="col">الاسم العائلي</th>
+                    <th scope="col">الايميل</th>
+                    <th scope="col">اختيار</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for destinataire in  destinataires %}
+                    <tr {% if loop.index is odd %}class="color"{% endif %}>
+                        <td>{{ destinataire.nom }}</td>
+                        <td>{{ destinataire.prenom }}</td>
+                        <td>{{ destinataire.email }}</td>
+                        <td>
+                            <input type="checkbox"  id="{{ destinataire.id }}" name="mail" value='{{ destinataire.id }}' class="mail"> 
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="entry">
+            <div class="navigation">
+            </div>
+            <div class="sep"></div>
+            <button class="button">ارسل</button>
+
+        </div>
+    </div>
+
+{% endblock %}

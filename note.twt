@@ -1,0 +1,68 @@
+fiche technique de l'activité
+fiche technique de l'association
+conversion au pdf des deux fiches
+envoi et utilisation des donnee $.ajax:
+$data = $request->query->get('data');
+#####
+ // Check if video is playing (works)
+  var myPlayerState;
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING) {
+        alert('playing');
+
+         $.ajax({
+              url: "{{ path('dbe_user_add_experience') }}",
+              type: "POST",
+              data: { "data" : 'test' },
+              success: function(data) { 
+                 alert (data);
+              },
+              error: function(XMLHttpRequest, textStatus, errorThrown)
+              {
+                alert('Error: ' +  errorThrown);
+              }
+           });
+    }
+    myPlayerState = event.data;
+  }
+public function getExperienceAction(){
+        $request = $this->container->get('request');
+        $data = $request->request->get('data');
+        var_dump($data);
+        die;
+
+
+        $url = $this->container->get('router')->generate('fos_user_profile_show');
+        $response = new RedirectResponse($url);
+        return $response;
+
+        //$this->addExperience(5);
+  }
+
+You are using the wrong property to get POST data.
+
+To get GET data :
+
+$request->query->get('data');
+To get POST data :
+
+$request->request->get('data');
+####
+namespace Acme\DemoBundle\Controller;
+
+use Symfony\Component\HttpFoundation\Request;
+//...other things to use
+
+class MyController extends Controller
+{
+    public function handleRequestAction() {
+
+        $request = $this->get('request');
+        //request your data
+        $title   = $request->get('title');
+        //or in one line
+        $title   = $this->get('request')->request->get('title');
+    }
+}
+####
+sauvgarde des base de donnees

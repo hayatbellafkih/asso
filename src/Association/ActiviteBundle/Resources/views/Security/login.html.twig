@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl" xml:lang="pl" dir="rtl">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Paweł 'kilab' Balicki - kilab.pl" />
+        <title>SimpleAdmin</title>
+        <link rel="stylesheet" href="{{ asset( 'css/login.css' ) }}" type="text/css" />
+    </head>
+    <body>
+        <div class="wrap">
+            <div id="content">
+                <div id="main">
+                    <div class="full_w">
+                        <form action="{{ path( 'login_check' ) }}" method="post">
+                            <label for="login">اسم المُستخدم:</label>
+                            <input id="login" id="username" name="_username" value="{{
+               last_username }}" class="text" />
+                                   <label for="pass">كلمة المرور:</label>
+                                <input id="password" name="_password" type="password" class="text" />
+
+                                <div class="sep"></div>
+                                <button type="submit" class="ok">دخول</button> <a class="button" href="">نسيت كلمة المرور؟</a>
+                        </form>
+                    </div>
+                    <div class="footer">&raquo; <a href="">http://yourpage.com</a> | Admin Panel</div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

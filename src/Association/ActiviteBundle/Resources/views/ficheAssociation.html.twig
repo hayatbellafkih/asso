@@ -1,0 +1,53 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div class="full_w">
+        <div class="h_title">بطاقة تقنية للجمعية   </div>
+        <div>
+            <table border="4" style="float:right">
+                <tr>
+                </tr>
+                <tr>
+                    <td  class="td-fichel" >اسم الجمعية</td>
+                    <td  class="td-fichev" >{{ association.nom}}</td>
+                </tr>
+                <tr>
+                    <td  class="td-fichel" >تاريخ التاسيس </td>
+                    <td  class="td-fichev" >{{ association.dateCreation|date('Y-m-d') }}</td>
+                </tr>
+                <tr>
+                    <td  class="td-fichel" >مقر الجمعية </td>
+                    <td  class="td-fichev" >{{ association.local}}</td>
+                </tr>
+                <tr>
+                    <td  class="td-fichel" >الهاتف </td>
+                    <td  class="td-fichev" >{{ association.telUn}}</td>
+                </tr>
+                <tr>
+                    <td  class="td-fichel" >العنوان </td>
+                    <td  class="td-fichev" >{{ association.adresse}}</td>
+                </tr>
+                <tr>
+                    <td  class="td-fichel" > الموقع الالكتروني</td>
+                    <td  class="td-fichev" >{{ association.site}}</td>
+                </tr>
+                <tr>
+                    <td  class="td-fichel" >صفحة الفايسبوك </td>
+                    <td  class="td-fichev" >{{ association.facebook}}</td>
+                </tr>
+                <tr>
+                    <td  class="td-fichel" >قناة اليوتيب </td>
+                    <td  class="td-fichev" >{{ association.youtube }}</td>
+                </tr>
+                <tr>
+                    <td  class="td-fichel" > قناة التويتر</td>
+                    <td  class="td-fichev" >{{ association.twiter}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="sep"></div>		
+        <div>
+            <a class="button add" href="{{ path('association_fiche_editer') }}">تعديل معلومات الجمعية</a>
+        </div>
+        <div class="sep"></div>		
+
+    {% endblock %}

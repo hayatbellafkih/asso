@@ -1,0 +1,14 @@
+.labels{
+     color: #575757;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    padding: 0 3px 0 3px;
+}
+label .titres{
+     color: red;
+}
+select{
+    width: 100px;
+}

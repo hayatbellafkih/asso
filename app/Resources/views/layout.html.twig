@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ar" dir="rtl">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Paweł 'kilab' Balicki - kilab.pl" />
+        <title>SimpleAdmin</title>
+
+        <link rel="stylesheet" href="{{ asset( 'css/style.css' ) }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset( 'css/navi.css' ) }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset( 'css/other.css' ) }}" type="text/css" />
+
+        <script type="text/javascript" src="{{ asset('js/jquery-1.7.2.min.js') }}"></script>
+        <script type="text/javascript">
+            $(function() {
+                $(".box .h_title").not(this).next("ul").hide("normal");
+                $(".box .h_title").not(this).next("#home").show("normal");
+                $(".box").children(".h_title").click(function() {
+                    $(this).next("ul").slideToggle();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="wrap">
+            <div id="header">
+                <div id="top">
+                    <div class="right">
+                        <p>مرحبا, 
+                            {% if app.user != null %}
+                                <strong>
+                                    <b>{{ app.user.username }}</b
+                                </strong>
+                                [ <a href="logout">تسجيل الخروج</a> ]</p>
+
+
+                        {% endif%}
+                    </div>
+                    <div class="left">
+                        <div class="align-right">
+                            <p>آخر دخول: <strong>23-04-2012 23:12</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="nav">
+                    <ul>
+                        <li class="upp"><a href="{{ path('association_manager_homepage') }}">الرئيسية</a>
+                        </li>
+                        <li class="upp"><a href="#">الزوار</a>
+                            <ul>
+                                <li>&#8250; <a href="{{ path('liste_visiteur') }}">لائحة زوار الجمعية</a></li>
+                            </ul>
+                        </li>
+                        <li class="upp"><a href="#">الانشطة</a>
+                            <ul>
+                                <li>&#8250; <a href="{{ path('association_activite_liste')}}">عرض جميع الانشطة</a></li>
+                                <li>&#8250; <a href="{{ path('association_activite_ajouter')}}">إضافة نشاط جديد</a></li>
+                            </ul>
+                        </li>
+                        <li class="upp"><a href="#">الاجتماعات</a>
+                            <ul>
+                                <li>&#8250; <a href="{{ path('association_reunion_liste')}}">عرض الجميع الاجتماعات</a></li>
+                                <li>&#8250; <a href="{{ path('association_reunion_ajouter')}}"> اضافة اجتماع جديد </a></li>
+                            </ul>
+                        </li>
+                        <li class="upp"><a href="#">الانخراطات</a>
+                            <ul>
+                                <li>&#8250; <a href="{{ path('association_adherant_liste') }}">عرض الجميع المنخرطين </a></li>
+                                <li>&#8250; <a href="{{ path('association_adherant_ajouter') }}"> اضافة منخرط جديد </a></li>
+                            </ul>
+                        </li>
+                        <li class="upp"><a href="#">الحسابات</a>
+                            <ul>
+                                <li>&#8250; <a href="{{ path('association_charge_liste')}}">المصاريف </a></li>
+                                <li>&#8250; <a href=""> المداخيل </a></li>
+                            </ul>
+                        </li>
+                        <li class="upp"><a href="{{ path('association_configurations') }}">الإعدادات</a>
+                        </li>
+                        <li class="upp"><a href="#">اخرى</a>
+                            <ul>
+                                <li>&#8250; <a href="{{ path('association_fiche') }}">بطاقة تعريفية للجمعية</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="content">
+                <div id="sidebar">
+                    <div class="box">
+                        <div class="h_title">&#8250; التحكم الرئيسي</div>
+                        <ul id="home">
+                            <li class="b1"><a class="icon view_page" href="">زيارة الموقع</a></li>
+                            <li class="b2"><a class="icon report" href="">التقارير</a></li>
+                            <li class="b1"><a class="icon add_page" href="">إضافة صفحة جديدة</a></li>
+                            <li class="b2"><a class="icon config" href="">إعدادات الموقع</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="box">
+                        <div class="h_title">&#8250; إدارة المُحتوى</div>
+                        <ul>
+                            <li class="b1"><a class="icon page" href="">عرض جميع الصفحات</a></li>
+                            <li class="b2"><a class="icon add_page" href="">إضافة صفحة جديدة</a></li>
+                            <li class="b1"><a class="icon photo" href="">إضافة معرض جديد</a></li>
+                            <li class="b2"><a class="icon category" href="">التصنيفات</a></li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <div class="h_title">&#8250; المُستخدمين</div>
+                        <ul>
+                            <li class="b1"><a class="icon users" href="">عرض جميع المُستخدمين</a></li>
+                            <li class="b2"><a class="icon add_user" href="">إضافة مُستخدم جديد</a></li>
+                            <li class="b1"><a class="icon block_users" href="">إقفال المُستخدمين</a></li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <div class="h_title">&#8250; الإعدادات</div>
+
+                    </div>
+                </div>
+                <div id="main">
+
+                    {% block body %}
+                    {% endblock %}
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div id="footer">
+                <div class="left">
+                    <p>تصميم: <a href="http://kilab.pl">Paweł Balicki</a> | تعريب: <a href="http://templaty.com">قالبي</a></p>
+                </div>
+                <div class="right">
+                    <p><a href="">مثال على رابط1</a> | <a href="">مثال رابط 2</a></p>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="{{ asset('js/configsk.js') }}"></script>
+
+    </body>
+</html>

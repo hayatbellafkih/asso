@@ -1,0 +1,43 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div>
+        <p> 
+            {#            <span>النشاط</span><span>{{ libeleActivite }}</span>
+            #}        </p>
+    </div>
+    <div class="full_w">
+        <div class="h_title">   </div>
+        <form action="{#{{ path('',{ }) }}#}" method="post" {{ form_enctype(form) }}>
+            <div class="element">
+                {{ form_label(form.type,'نوع الاجتماع') }}
+                {{ form_errors(form.type) }}
+                {{ form_widget(form.type) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.date,'تاريخ الاجتماع') }}
+                {{ form_errors(form.date) }}
+                {{ form_widget(form.date,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.heure,'توقيت الاجتماع') }}
+                {{ form_errors(form.heure) }}
+                {{ form_widget(form.heure,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.programme,'جدول الاعمال') }}
+                {{ form_errors(form.programme) }}
+                {{ form_widget(form.programme,{ 'attr': {'class': 'text'} }) }}
+            </div>
+
+            <div class="element">
+                <label  class="text">تحميل تقرير الاجتماع</label>
+                {{ form_widget(form.pv) }}
+            </div>
+
+            <div class="entry">
+                <button type="submit" name="action_visiteurs" value="reset" class='add'>حفظ الاجتماع</button> 
+                <a class="button" href="{{ path('association_reunion_liste') }}">الرجوع الى القائمة </a> 
+            </div>
+        </form>
+    </div>
+{% endblock %}

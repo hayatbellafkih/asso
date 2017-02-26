@@ -1,0 +1,72 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div class="full_w">
+        <div class="h_title"> اضافة فاتورة  </div>
+        <form action="{{ path('association_charge_ajouter') }}" method="post">
+            <div class="element">
+                {{ form_label(form.dateOperation,'تاربخ العملية') }}
+                {{ form_errors(form.dateOperation) }}
+                {{ form_widget(form.dateOperation,{ 'attr': {'class': 'text'} }) }}
+            </div>
+
+            <div class="element">
+                {{ form_label(form.valeur,'مبلغ العملية') }}
+                {{ form_errors(form.valeur) }}
+                {{ form_widget(form.valeur,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.description, 'مسمى العملية') }}
+                {{ form_errors(form.description) }}
+                {{ form_widget(form.description,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.commentaire,'اضافات') }}
+                {{ form_errors(form.commentaire) }}
+                {{ form_widget(form.commentaire,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.resteAPayer,'باقي الواجب اداؤه') }}
+                {{ form_errors(form.resteAPayer) }}
+                {{ form_widget(form.resteAPayer,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.dateLimiteRestAPayer,'اخر اجل للتسديد') }}
+                {{ form_errors(form.dateLimiteRestAPayer) }}
+                {{ form_widget(form.dateLimiteRestAPayer,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div><h2>معلومات المستخلص</h2></div>
+
+            <div class="element">
+                <label for="fournisseurs">المستخلصين</label>  
+                <div class="element">
+                    <label for="comments">التعليقات</label>
+                    <input type="radio" name="comments" value="on"  id='fournisseurExistant' /> موجود 
+                    <input type="radio" name="comments" value="off"  id='nouveauFournisseur'/> جديد
+                </div>
+
+                <div id='nvf'>
+                    <div class="element" id='fournisseurs'>
+                        {{ form_widget(form.fournisseur) }}
+                    </div>
+                </div>
+                <div id='exf'>
+                    <label for="categoriesFournisseurs">تصنيفات  المستخلصين </label>
+                    <select name="categoriesFournisseurs"  id="categoriesFournisseurs">
+                        {% for cat in categoriesFournisseurs%}
+                            <option value="1"> {{ cat }}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="fournisseurs"  id="fournisseurscharge">
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="entry">
+                <button type="submit" name="" value="reset" class="add">حفظ الفاتورة</button> 
+                <a class="button" href="">الرجوع</a> 
+
+            </div>
+        </form>
+    </div>
+{% endblock %}

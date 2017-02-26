@@ -1,0 +1,41 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div class="full_w">
+        <div class="h_title">لائحة الفواتير</div>
+        <div class="entry">
+            <div class="sep"></div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">تاربخ العملية</th>
+                    <th scope="col">مبلغ العملية</th>
+                    <th scope="col">المستخلص</th>
+                    <th scope="col" style="width: 65px;">تحرير</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for charge in listecharges %}
+                    <tr {% if loop.index is odd %}class="color"{% endif %}>
+                        <td>{{ charge.dateOperation |date('Y-m-d') }}</td>
+                        <td>{{ charge.valeur }}</td>
+                        <td>{{ charge.fournisseur.nom }}</td>
+
+                        <td>
+                            <a href="{{ path('association_charge_editer',{id: charge.id }) }}" class="table-icon edit" title="تحرير"></a>
+                            <a href="{{ path('association_charge_supprimer',{ id: charge.id}) }}" class="table-icon delete" title="حذف"></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="entry">
+            <div class="navigation">
+                {{ knp_pagination_render(listecharges) }}
+            </div>
+            <div class="sep"></div>
+            <a class="button add" href="{{ path('association_charge_ajouter') }}">اضافة فاتورة جديدة</a> 
+
+        </div>
+    </div>
+{% endblock %}

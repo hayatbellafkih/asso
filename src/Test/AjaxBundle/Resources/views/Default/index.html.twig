@@ -1,0 +1,36 @@
+<html>
+<head></head>
+<body>
+Hello samara
+<form method="post">
+<input type="button" id="button">
+<input type="text" name="nom" value="hayat" />
+<button>Test test</button>
+</form>
+<script type="text/javascript" src="{{ asset('js/jquery-1.7.2.min.js') }}"></script>
+
+<script>
+function aButtonPressed(){
+alert('on pressed');
+      $.ajax({
+  type: "POST",
+  url: "{{path('AcmeHomeBundle_ajax_update_mydata')}}",
+  data: "name=John&location=Boston",
+  success: function(msg){
+        alert( "Data Saved: " + msg );
+  },
+  error: function(XMLHttpRequest, textStatus, errorThrown) {
+     alert("some error");
+  }
+});
+	alert('fin on pressed');
+}
+
+$(document).ready(function() {   
+  $('#button').on('click', function(){aButtonPressed();});
+  
+});
+</script><body>
+</html>
+
+

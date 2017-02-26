@@ -1,0 +1,130 @@
+#acceuil : index
+association_manager_homepage:
+    path:     /
+    defaults: { _controller:AssociationActiviteBundle:General:index }
+#les activités
+#association_activite_homepage:
+#    path:     /creerActivite
+#    defaults: { _controller:AssociationActiviteBundle:Activite:creerActivite }
+association_activite_ajouter:
+    path:     /activite/ajouter
+    defaults: { _controller:AssociationActiviteBundle:Activite:ajouter}
+association_activite_supprimer:
+    path:     /activite/{id}/supprimer
+    defaults: { _controller:AssociationActiviteBundle:Activite:supprimer}
+    requirements:
+        id:    \d+
+association_activite_editer:
+    path:     /activite/{id}/editer
+    defaults: { _controller:AssociationActiviteBundle:Activite:editer}
+    requirements:
+        id:    \d+
+association_activite_liste:
+    path:     /activites
+    defaults: { _controller:AssociationActiviteBundle:Activite:list}
+association_activite_ajouter_visiteurs:
+    path:     /activite/{id}/ajouterVisiteur
+    defaults: { _controller:AssociationActiviteBundle:Activite:ajouterVisiteur}
+    requirements:
+        id:   \d+
+#association_activite_valider_visiteurs:
+#    path:     /activite/validerVisiteur
+#    defaults: { _controller:AssociationActiviteBundle:Activite:validerVisiteur}
+#    
+## visiteurs
+liste_visiteur:
+    path:	/listeVisiteurs
+    defaults:	{ _controller:AssociationActiviteBundle:Visiteurs:index }
+association_visiteurs_supprimer:
+    path:     /visiteurs/supprimer/{id}
+    defaults: { _controller:AssociationActiviteBundle:Visiteurs:supprimer}
+    requirements:
+        id:   \d+
+association_visiteurs_editer:
+    path:     /visiteurs/editer/{id}
+    defaults: { _controller:AssociationActiviteBundle:Visiteurs:editer}
+    requirements:
+        id:   \d+
+#general
+association_fiche:
+    path:	/ficheAssociation
+    defaults:	{ _controller:AssociationActiviteBundle:General:ficheAssociation }
+association_fiche_editer:
+    path:	/editerficheAssociation
+    defaults:	{ _controller:AssociationActiviteBundle:General:editerficheAssociation }
+#adherants
+association_adherant_ajouter:
+    path:       /adherants/ajouter
+    defaults:	{ _controller:AssociationActiviteBundle:Adherant:ajouter }
+association_adherant_liste:
+    path:       /adherants
+    defaults:	{ _controller:AssociationActiviteBundle:Adherant:liste }
+association_adherant_fiche_detail:
+    path:       /adherants/fiche/{id}
+    defaults:	{ _controller:AssociationActiviteBundle:Adherant:ficheAdherant }
+    requirements:
+        id:     \d+
+association_adherant_supprimer:
+    path:       /adherants/supprimer/{id}
+    defaults:	{ _controller:AssociationActiviteBundle:Adherant:supprimer }
+    requirements:
+        id:     \d+
+association_adherant_editer:
+    path:       /adherants/editer/{id}
+    defaults:	{ _controller:AssociationActiviteBundle:Adherant:editer }
+    requirements:
+        id:     \d+
+#reunion 
+association_reunion_ajouter:
+    path:       /reunions/ajouter
+    defaults:	{ _controller:AssociationActiviteBundle:Reunion:ajouter }
+association_reunion_liste:
+    path:       /reunions
+    defaults:	{ _controller:AssociationActiviteBundle:Reunion:liste }
+association_reunion_supprimer:
+    path:       /reunions/supprimer/{id}
+    defaults:	{ _controller:AssociationActiviteBundle:Reunion:supprimer }
+    requirements:
+        id:   \d+
+association_reunion_editer:
+    path:       /reunions/editer/{id}
+    defaults:	{ _controller:AssociationActiviteBundle:Reunion:editer }
+    requirements:
+        id:   \d+
+#configurations
+association_configurations:
+    path:       /options
+    defaults:	{ _controller:AssociationActiviteBundle:Config:index }
+
+association_test:
+    path:       /ajouterTypereunion/{type}
+    defaults:	{ _controller:AssociationActiviteBundle:Config:AjoutType }
+    requirements:
+        id:     \s
+#charges
+association_charge_ajouter:
+    path:       /charges/ajouter
+    defaults:	{ _controller:AssociationActiviteBundle:Charge:ajouter }
+association_charge_liste:
+    path:       /charges
+    defaults:	{ _controller:AssociationActiviteBundle:Charge:liste}
+association_charge_supprimer:
+    path:       /charges/supprimer/{id}
+    defaults:	{ _controller:AssociationActiviteBundle:Charge:supprimer}
+    requirements:
+        id:     \d+
+association_charge_editer:
+    path:       /charges/editer/{id}
+    defaults:	{ _controller:AssociationActiviteBundle:Charge:editer}
+    requirements:
+        id:     \d+
+association_charge_loadFournisseurs:
+    path:       /loadFournisseurs
+    defaults:	{ _controller:AssociationActiviteBundle:Charge:loadFournisseurs}
+#mailing
+association_mailing_liste_adherant:
+    path:       /mailingAdherants
+    defaults:	{ _controller:AssociationActiviteBundle:Mailing:listeMailingAdherant}
+association_mailing_liste:
+    path:       /mailing
+    defaults:	{ _controller:AssociationActiviteBundle:Mailing:listeMailing}

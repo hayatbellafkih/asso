@@ -1,0 +1,46 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div class="full_w">
+        <div class="h_title">ادارة المنخرطين</div>
+        <div class="entry">
+            <div class="sep"></div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col"> تاريخ الانخراط</th>
+                    <th scope="col">اسم الشخصي</th>
+                    <th scope="col">مكان العائلي</th>
+                    <th scope="col">انتهاء الصلاحية تاريخ </th>
+                    <th scope="col">المهمة</th>
+
+                    <th scope="col" style="width: 65px;">تحرير</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for adherant in adhearnts %}
+                    <tr {% if loop.index is odd %}class="color"{% endif %}>
+                        <td>{{ adherant.dateAdhesion| date( 'd/m/Y' ) }}</td>
+                        <td>{{ adherant.nom }}</td>
+                        <td>{{ adherant.prenom }}</td>
+                        <td>{{ adherant.dateExpiration| date( 'd/m/Y' ) }}</td>
+                        <td>{{ adherant.profil }}</td>
+
+                        <td>
+                            <a href="{{ path('association_adherant_editer',{'id' : adherant.id}) }}" class="table-icon edit" title="تحرير"></a>
+                            <a href="{{ path('association_adherant_supprimer',{'id' : adherant.id}) }}" class="table-icon delete" title="حذف" id="delete_activite"></a>
+                            <a href="{{ path('association_adherant_fiche_detail',{'id' : adherant.id}) }}"  class="table-icon report" title=" "></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="entry">
+            <div class="navigation">
+                {{ knp_pagination_render(adhearnts) }}
+            </div>
+            <div class="sep"></div>		
+            <a class="button add" href="{{ path('association_adherant_ajouter') }}">اضافة منخرط جديد</a> 
+        </div>
+    </div>
+{% endblock %}

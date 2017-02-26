@@ -1,0 +1,18 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div class="full_w">
+        <div class="h_title">بطافة المنخرط</div>
+        <div class="entry">
+            <div class="sep"></div>
+        </div>
+        <div></div>
+        <table>
+            <tbody>
+                <tr><td class="td-fichel">الاسم الشخصي</td><td class="td-fichev">{{ adherant.nom }}</td></tr>
+                <tr><td class="td-fichel">الاسم العائلي</td><td class="td-fichev">{{ adherant.prenom}}</td></tr>
+                <tr><td class="td-fichel">تاريخ الانخراط</td><td class="td-fichev">{{ adherant.dateAdhesion|date('Y-m-d') }}</td></tr>
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

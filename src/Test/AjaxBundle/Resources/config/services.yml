@@ -1,0 +1,7 @@
+parameters:
+#    test_ajax.example.class: Test\AjaxBundle\Example
+
+services:
+#    test_ajax.example:
+#        class: %test_ajax.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

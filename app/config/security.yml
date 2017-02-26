@@ -1,0 +1,31 @@
+security:
+    encoders:
+        Association\ActiviteBundle\Entity\User: plaintext
+        Symfony\Component\Security\Core\User\User: plaintext
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        main:
+            entity: { class: Association\ActiviteBundle\Entity\User, property: username }
+        
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            pattern: ^/
+            anonymous: true
+            form_login:
+                login_path: login
+                check_path: login_check
+            logout:
+                path: logout
+                target: /listeVisiteurs
+
+    access_control:
+#        - { path: ^/, roles: IS_AUTHENTICATED_REMEMBERED }
+        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

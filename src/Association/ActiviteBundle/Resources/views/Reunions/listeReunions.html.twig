@@ -1,0 +1,43 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div class="full_w">
+        <div class="h_title">  ادارة الاجتماعات</div>
+        <div class="entry">
+            <div class="sep"></div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">نوع الاجتماع</th>
+                    <th scope="col">تاريخ الاجتماع</th>
+                    <th scope="col">توقيت الاجتماع</th>
+                    <th scope="col">جدول الاعمال</th>
+                    <th scope="col" style="width: 65px;">تحرير</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reunion in listereunions %}
+                    <tr {% if loop.index is odd %}class="color"{% endif %}>
+                        <td>{{ reunion.type }}</td>
+                        <td>{{  reunion.date|date('Y-m-d') }}</td>
+                        <td>{{ reunion.heure }}</td>
+                        <td>{{ reunion.programme }}</td>
+
+                        <td>
+                            <a href="{{ path('association_reunion_editer',{ 'id' : reunion.id}) }}" class="table-icon edit" title="تحرير"></a>
+                            <a href="{{ path('association_reunion_supprimer',{ 'id' : reunion.id}) }}" class="table-icon delete" title="حذف"></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="entry">
+            <div class="navigation">
+                {{ knp_pagination_render(listereunions) }}
+            </div>
+            <div class="sep"></div>	
+                        <a class="button add" href="{{ path('association_reunion_ajouter') }}">اضافة اجتماع جديد</a> 
+
+        </div>
+    </div>
+{% endblock %}

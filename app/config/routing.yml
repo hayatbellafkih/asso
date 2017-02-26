@@ -1,0 +1,31 @@
+#test_ajax:
+#    resource: "@TestAjaxBundle/Resources/config/routing.yml"
+#    prefix:   /
+
+association_activite:
+    resource: "@AssociationActiviteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+#association_acceuil:
+#    resource: "@AssociationAcceuilBundle/Resources/config/routing.yml"
+#    prefix:   /
+#
+#association_user:
+#    resource: "@AssociationUserBundle/Resources/config/routing.yml"
+#    prefix:   /
+#
+#association_visiteurs:
+#    resource: "@AssociationVisiteursBundle/Resources/config/routing.yml"
+#    prefix:   /
+#
+#association_adherants:
+#    resource: "@AssociationAdherantsBundle/Resources/config/routing.yml"
+#    prefix:   /
+login:
+    pattern: /login
+    defaults: { _controller:AssociationActiviteBundle:Security:login }
+login_check:
+    pattern: /login_check
+logout:
+    pattern: /logout
+

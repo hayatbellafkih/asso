@@ -1,0 +1,18 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div class="full_w">
+        <div class="h_title">   </div>
+        <form action="{#{{ path('',{ }) }}#}" method="post">
+            <div class="element">
+                {{ form_label(form.) }}
+                {{ form_errors(form.) }}
+                {{ form_widget(form.,{ 'attr': {'class': 'text'} }) }}
+            </div>
+          
+         
+            <div class="entry">
+                <button type="submit" name="" value="reset">معاينة</button> 
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div class="full_w">
+        <div class="h_title">   </div>
+        <form action="{{ path('association_charge_editer', { id: id}) }}" method="post">
+            <div class="element">
+                {{ form_label(form.dateOperation) }}
+                {{ form_errors(form.dateOperation) }}
+                {{ form_widget(form.dateOperation,{ 'attr': {'class': 'text'} }) }}
+            </div>
+          
+            <div class="element">
+                {{ form_label(form.valeur) }}
+                {{ form_errors(form.valeur) }}
+                {{ form_widget(form.valeur,{ 'attr': {'class': 'text'} }) }}
+            </div>
+               <div class="element">
+                {{ form_label(form.description) }}
+                {{ form_errors(form.description) }}
+                {{ form_widget(form.description,{ 'attr': {'class': 'text'} }) }}
+            </div>
+               <div class="element">
+                {{ form_label(form.commentaire) }}
+                {{ form_errors(form.commentaire) }}
+                {{ form_widget(form.commentaire,{ 'attr': {'class': 'text'} }) }}
+            </div>
+               <div class="element">
+                {{ form_label(form.resteAPayer) }}
+                {{ form_errors(form.resteAPayer) }}
+                {{ form_widget(form.resteAPayer,{ 'attr': {'class': 'text'} }) }}
+            </div>
+               <div class="element">
+                {{ form_label(form.dateLimiteRestAPayer) }}
+                {{ form_errors(form.dateLimiteRestAPayer) }}
+                {{ form_widget(form.dateLimiteRestAPayer,{ 'attr': {'class': 'text'} }) }}
+            </div>
+               <div class="element">
+                {{ form_widget(form.fournisseur) }}
+            </div>
+
+            <div class="entry">
+                <button type="submit" name="" value="reset">معاينة</button> 
+            </div>
+        </form>
+    </div>
+{% endblock %}

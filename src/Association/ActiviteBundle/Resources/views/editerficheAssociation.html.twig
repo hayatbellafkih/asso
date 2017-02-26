@@ -1,0 +1,97 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div class="full_w">
+        <div class="h_title">بطاقة تقنية للجمعية   </div>
+        <form action="{{ path('association_fiche_editer') }}" method="post">
+            <div class="element">
+                {{ form_label(form.nom,'') }}
+                {{ form_errors(form.nom) }}
+                {{ form_widget(form.nom,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.site,'') }}
+                {{ form_errors(form.site) }}
+                {{ form_widget(form.site,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.pays,'') }}
+                {{ form_errors(form.pays) }}
+                {{ form_widget(form.pays,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.ville,'') }}
+                {{ form_errors(form.ville) }}
+                {{ form_widget(form.ville,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.fax,'') }}
+                {{ form_errors(form.fax) }}
+                {{ form_widget(form.fax,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.youtube,'') }}
+                {{ form_errors(form.youtube) }}
+                {{ form_widget(form.youtube,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.dateCreation,'') }}
+                {{ form_errors(form.dateCreation) }}
+                {{ form_widget(form.dateCreation,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.twiter,'') }}
+                {{ form_errors(form.twiter) }}
+                {{ form_widget(form.twiter,{ 'attr': {'class': 'text'} }) }}
+            </div>
+          {#  <div class="element">
+                {{ form_label(form.pathLogo,'') }}
+                {{ form_errors(form.pathLogo) }}
+                {{ form_widget(form.pathLogo,{ 'attr': {'class': 'text'} }) }}
+            </div>#}
+            <div class="element">
+                {{ form_label(form.local,'') }}
+                {{ form_errors(form.local) }}
+                {{ form_widget(form.local,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.adresse,'') }}
+                {{ form_errors(form.adresse) }}
+                {{ form_widget(form.adresse,{ 'attr': {'class': 'text'} }) }}
+            </div>   <div class="element">
+                {{ form_label(form.telUn,'') }}
+                {{ form_errors(form.telUn) }}
+                {{ form_widget(form.telUn,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.telDeux,'') }}
+                {{ form_errors(form.telDeux) }}
+                {{ form_widget(form.telDeux,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.telTrois,'') }}
+                {{ form_errors(form.telTrois) }}
+                {{ form_widget(form.telTrois,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.emailUn,'') }}
+                {{ form_errors(form.emailUn) }}
+                {{ form_widget(form.emailUn,{ 'attr': {'class': 'text'} }) }}
+            </div>
+                <div class="element">
+                {{ form_label(form.emailDeux,'') }}
+                {{ form_errors(form.emailDeux) }}
+                {{ form_widget(form.emailDeux,{ 'attr': {'class': 'text'} }) }}
+            </div>
+                <div class="element">
+                {{ form_label(form.facebook,'') }}
+                {{ form_errors(form.facebook) }}
+                {{ form_widget(form.facebook,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            
+            <div class="entry">
+                <button type="submit"  name="action_visiteurs" value="add">حفظ الصفحة</button> 
+            </div>
+        </form>
+        <script type="text/javascript" src="{{ asset('js/activite.js') }}"></script>
+    </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div class="full_w">
+        <div class="h_title">ادارة الانشطة</div>
+        <div class="entry">
+            <div class="sep"></div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">تاريخ النشاط</th>
+                    <th scope="col">اسم النشاط</th>
+                    <th scope="col">مكان النشاط</th>
+                    <th scope="col">وصف النشاط</th>
+                    <th scope="col">توقيت النشاط</th>
+                    <th scope="col" style="width: 65px;">تحرير</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in pagination %}
+                    <tr {% if loop.index is odd %}class="color"{% endif %}>
+                        <td>{{ article.date| date( ' d/m/Y' ) }}</td>
+                        <td>{{ article.libele }}</td>
+                        <td>{{ article.lieu }}</td>
+                        <td>{{ article.description }}</td>
+                        <td>{{ article.heure }}</td>
+                        <td>
+                            <a href="{{ path('association_activite_editer',{'id' : article.id}) }}" class="table-icon edit" title="تحرير"></a>
+                            <a href="{{ path('association_activite_supprimer',{'id' : article.id}) }}" class="table-icon delete" title="حذف" id="delete_activite"></a>
+                            <a href="{{ 'activite/' ~ article.id ~ '/ajouterVisiteur' }}" class="table-icon add_us"  title="اضافة الزوار"></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="entry">
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+            <div class="sep"></div>		
+            <a class="button add" href="{{ path('association_activite_ajouter') }}">اضافة نشاط جديد</a> 
+        </div>
+    </div>
+{% endblock %}

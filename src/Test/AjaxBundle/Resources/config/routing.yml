@@ -1,0 +1,9 @@
+test_ajax_homepage:
+    path:     /salam
+    defaults: { _controller: TestAjaxBundle:Default:index }
+AcmeHomeBundle_ajax_update_mydata:
+  pattern:  /login
+  defaults: { _controller: TestAjaxBundle:Default:updateData }
+form_add:
+  pattern:  /form_task
+  defaults: { _controller: TestAjaxBundle:Default:form }

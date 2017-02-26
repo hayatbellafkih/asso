@@ -1,0 +1,41 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div class="full_w">
+        <div class="h_title">اضافة نشاط جديد </div>
+        <form action="{{ path('association_activite_ajouter') }}" method="post" {{ form_enctype(form) }}>
+            <div class="element">
+                {{ form_label(form.libele,'اسم النشاط', {'label_attr': {'class': 'foo','for' :'for_attr' }}) }}
+                {{ form_errors(form.libele) }}
+                {{ form_widget(form.libele,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.description,"وصف") }}
+                {{ form_errors(form.description) }}
+                {{ form_widget(form.description,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.heure,"توقيت النشاط") }}
+                {{ form_errors(form.heure) }}
+                {{ form_widget(form.heure,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.lieu,"مكان النشاط") }}
+                {{ form_errors(form.lieu) }}
+                {{ form_widget(form.lieu,{ 'attr': {'class': 'text'} }) }}
+            </div>
+            <div class="element">
+                {{ form_label(form.date,'تاريخ النشاط') }}
+                {{ form_errors(form.date) }}
+                {{ form_widget(form.date,{'attr': {'class': 'text'} }) }}
+            </div>
+               <div class="element">
+          
+                {{ form_widget(form.fiche) }}
+            </div>
+            <div class="element">
+                <button type="submit" class="add">حفظ الصفحة</button>
+                <a class="button" href="{{ path('association_activite_liste') }}">الرجوع الى القائمة</a>
+            </div>
+        </form>
+        <div>
+        {% endblock %}
